@@ -1,0 +1,158 @@
+/* Weather Chatbot Enhanced UI Stylesheet */
+:root {
+    /* Light Mode Colors */
+    --primary-color: #0078ff;
+    --primary-color-dark: #005ec1;
+    --background-light: #f7f8fc;
+    --background-dark: #e3e9f2;
+    --text-color: #333;
+    --white: #ffffff;
+    --light-gray: #f9f9f9;
+    --border-color: #ddd;
+    --error-background: #ffe4e6;
+    --error-text: #ff4a4a;
+    --input-background: #f0f4f9;
+    --input-border: #d1e0f0;
+
+    /* Sizing and Spacing */
+    --border-radius-small: 10px;
+    --border-radius-large: 20px;
+    --spacing-small: 10px;
+    --spacing-medium: 15px;
+    --spacing-large: 20px;
+
+    /* Dark Mode Colors */
+    --dark-primary-color: #4a90e2;
+    --dark-background-light: #2c3e50;
+    --dark-background-dark: #34495e;
+    --dark-text-color: #ecf0f1;
+    --dark-border-color: #445;
+    --dark-input-background: #263544;
+    --dark-input-border: #3a4b5c;
+
+    /* Transition Variables */
+    --transition-speed: 0.3s;
+}
+
+/* Dark Mode Toggle */
+body.dark-mode {
+    --primary-color: var(--dark-primary-color);
+    --background-light: var(--dark-background-light);
+    --background-dark: var(--dark-background-dark);
+    --text-color: var(--dark-text-color);
+    --white: #1c2b3a;
+    --light-gray: #263544;
+    --border-color: var(--dark-border-color);
+    --input-background: var(--dark-input-background);
+    --input-border: var(--dark-input-border);
+}
+
+/* Input Container Styling */
+#input-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-medium);
+    background-color: var(--light-gray);
+    border-top: 1px solid var(--border-color);
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border: 2px solid var(--input-border);
+    border-radius: var(--border-radius-small);
+    background-color: var(--input-background);
+    font-size: 0.95rem;
+    color: var(--text-color);
+    outline: none;
+    transition: 
+        border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
+}
+
+#user-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 120, 255, 0.2);
+}
+
+#send-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-small);
+    padding: var(--spacing-small) var(--spacing-medium);
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 
+        background-color var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
+    gap: var(--spacing-small);
+}
+
+#send-btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#send-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+#send-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--white);
+    stroke-width: 2;
+}
+
+/* Enhanced Chat Container */
+#chat-container {
+    height: 450px;
+    padding: var(--spacing-medium);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    background-color: var(--light-gray);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+    border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+}
+
+/* Placeholder Styling */
+#user-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+    transition: opacity var(--transition-speed) ease;
+}
+
+#user-input:focus::placeholder {
+    opacity: 0.3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    #input-container {
+        flex-direction: column;
+        gap: var(--spacing-small);
+    }
+
+    #user-input, #send-btn {
+        width: 100%;
+    }
+
+    #send-btn {
+        padding: var(--spacing-medium);
+    }
+}
+
+/* Rest of the previous stylesheet remains the same */
